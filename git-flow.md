@@ -118,6 +118,13 @@ git commit --amend # edit previous message
 # status of local repository
 git status
 
+# check differences
+git diff
+git diff --color-words
+git diff --stat
+git diff --check
+git diff ${branch} ${branch}
+
 # backup uncommitted changes
 git stash -u
 git stash show
@@ -375,5 +382,6 @@ git branch --set-upstream-to=origin/develop develop
 - https://github.com/nvie/gitflow
 - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 - https://www.google.com/search?q=git+flow
+- https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
 
 [back to top](#git)
