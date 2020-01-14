@@ -5,7 +5,7 @@ SCM: Software Configuration Management
 1. [Clone repository](#clone-repository)
 2. [Branches](#branches)
 3. [Tags](#tags)
-4. [Commands](#)
+4. [Commands](#commands)
 5. [Git Flow](#git-flow)
     1. [Develop branch (develop)](#develop-branch-develop)
     2. [Feature branch (feature/my-feature)](#feature-branch-featuremy-feature)
