@@ -1,4 +1,4 @@
-#GIT
+# GIT
 
 SCM: Software Configuration Management
 
