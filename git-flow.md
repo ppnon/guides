@@ -5,7 +5,7 @@ SCM: Software Configuration Management
 1. [Clone repository](#clone-repository)
 2. [Branches](#branches)
 3. [Tags](#tags)
-4. [Commands](#)
+4. [Commands](#commands)
 5. [Git Flow](#git-flow)
     1. [Develop branch (develop)](#develop-branch-develop)
     2. [Feature branch (feature/my-feature)](#feature-branch-featuremy-feature)
@@ -117,6 +117,13 @@ git commit --amend # edit previous message
 
 # status of local repository
 git status
+
+# check differences
+git diff
+git diff --color-words
+git diff --stat
+git diff --check
+git diff ${branch} ${branch}
 
 # backup uncommitted changes
 git stash -u
@@ -375,5 +382,6 @@ git branch --set-upstream-to=origin/develop develop
 - https://github.com/nvie/gitflow
 - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 - https://www.google.com/search?q=git+flow
+- https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
 
 [back to top](#git)
