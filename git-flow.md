@@ -73,10 +73,14 @@ git fetch -p
 ##### Create
 ```bash
 # create local tag
-git tag -a 1.0.0
+git tag 1.0.0
+git tag -a 1.0.0 ${branch} -m 'message'
 
 # push local tags to remote
 git push origin --tags
+
+# see tag data
+git show ${tag}
 
 # list all tags
 git tag -l
