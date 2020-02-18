@@ -1,3 +1,5 @@
+# Branching Strategies
+
 Para el versionamiento de código fuentes... los siguientes modelos:
 
 - Feature Branches
