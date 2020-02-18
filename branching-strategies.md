@@ -6,15 +6,15 @@ Para el versionamiento de código fuentes... los siguientes modelos:
 - Gitflow Workflow
 - Trunk Based Development (TBD)
 
-A continuación se presentan algunos patrones que dan soporte a las estratégias de versionamiento mencionadas. Dependerá de la aplicación y el equipo decidir cual utilizar y en que situaciones.
+A continuación se presentan algunos patrones que dan soporte a las estrategias de versionamiento mencionadas. Dependerá de la aplicación y el equipo decidir cual utilizar y en que situaciones.
 
 #### Branch by Abstraction (BBA)
 
-Es un patrón que facilita la realización de un cambio a gran escala de forma gradual permitiendo liberar nuevas versiones (releases) de una aplicación regularmente mientras el cambio aún está en progreso. Consiste en utilizar una capa de abstracción para soportar que múltiples implementaciones coexistan en una misma aplicación, para lo cual deb utilizar una abstracción y múltiples implementaciones para migrar de una implementación a otra.
+Es un patrón que facilita la realización de un cambio a gran escala de forma gradual permitiendo liberar nuevas versiones (releases) de una aplicación regularmente mientras el cambio aún está en progreso. Consiste en utilizar una capa de abstracción para soportar que múltiples implementaciones coexistan en una misma aplicación, para lo cual debe utilizar una abstracción y múltiples implementaciones para migrar de una implementación a otra.
 
 Pasos básico para su aplicación:
 
-1. Cree una abstacción para la funcionalidad (feature) de la aplicación que necesita ser modificada.
+1. Cree una abstracción para la funcionalidad (feature) de la aplicación que necesita ser modificada.
 2. Modifique la aplicación para que utilice la nueva abstracción creada para la funcionalidad. 
 3. Adapte el código existente de la funcionalidad para que este sea una implementación de la abstracción.
 4. Cree la nueva implementación para la funcionalidad que está modificando.
@@ -26,8 +26,8 @@ Pasos básico para su aplicación:
 
 | **Ventajas** | **Desventajas** |
 |---|---|
-| El código funcionará durante todo el tiempo de la restructuración, permitiendo el despliegue continuo. | Este patrón puede agregar sobrecarga de trabajo al proceso de desarrollo, especialmente en casos donde el código es espagueti. |
-| Tu calendario de liberaciones no se verá afectado por los cambios estructurales de la aplicación. | El exceso de abstracción puede relentizar el entendimiento y mantenimiento de la aplicación por lo cual siempre se debe evaluar si estas se deben mantener o no. |
+| El código funcionará durante todo el tiempo de la reestructuración, permitiendo el despliegue continuo. | Este patrón puede agregar sobrecarga de trabajo al proceso de desarrollo, especialmente en casos donde el código es espagueti. |
+| Tu calendario de liberaciones no se verá afectado por los cambios estructurales de la aplicación. | El exceso de abstracción puede ralentizar el entendimiento y mantenimiento de la aplicación por lo cual siempre se debe evaluar si estas se deben mantener o no. |
 
 ##### Referencias
 
