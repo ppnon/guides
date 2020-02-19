@@ -1,5 +1,14 @@
 # Branching Strategies
 
+1. [Introducción] (#introduccion)
+	1.1. [Branch by Abstraction (BBA)] (#branch-by-Abstraction)
+	1.2. [Feature Toggle]
+	1.3. [Cherry Picking]
+
+---
+
+# Introducción
+
 Para el versionamiento de código fuentes... los siguientes modelos:
 
 - Feature Branches
@@ -45,15 +54,15 @@ Este patrón consiste en aislar  el código de una funcionalidad en proceso colo
 Ejemplos básicos de su aplicación:
 
 ```html
-<toggle name="my-new-feature">
-	<p>Take our new <a href = 'my-new-feature'>feature</a></p>
-</toggle>
+	<toggle name="my-new-feature">
+		<p>Take our new <a href = 'my-new-feature'>feature</a></p>
+	</toggle>
 ```
 
 ```java
-if( featureFlags.isOn("my-new-feature") ){
-	showNewFeatureInUI();
-}
+	if ( featureFlags.isOn("my-new-feature") ) {
+		showNewFeatureInUI();
+	}
 ```
 > Nota: Cuando una funcionalidad está terminada y liberada se deben de eliminar las configuraciones e interruptores de esta de todo el código.
 
@@ -70,14 +79,35 @@ if( featureFlags.isOn("my-new-feature") ){
 - https://martinfowler.com/bliki/FeatureToggle.html
 - https://martinfowler.com/articles/feature-toggles.html
 
-#### Cherry Pick
+#### Cherry Picking
 
-...
+Es el proceso de seleccionar un commit de un branch y replicarlo a otro branch. Este proceso puede ser muy útil en ciertas situaciones pero no siempre es una buena práctica por lo cual siempre debe analizar cual es la mejor situación para utilizarlo en lugar de un merge.
+
+Situaciones donde puede ser útil:
+
+- Para corregir un commit realizado en un branch equivocado.
+- Para replicar un commit en múltiples branchs
+- Para recuperación de commits perdidos
+- Para corrección de bugs 
+
+Cherry pick de un commit del branch Feature a Master
+
+```bash
+	a -b - c - d 		Master
+	   \
+	    e - f - g 		Feature
+
+# Copiaremos el commit f del Feature al Master
+
+	a -b - c - d - f 	Master
+	   \
+	    e - f - g 		Feature
+```
 
 | **Ventajas** | **Desventajas** |
 |---|---|
-|  |  |
-|  |  |
+| Permite integrar bugs o cambios sin necesidad de realizar un merge completo | Puede causar duplicación o pérdida de commits si no se usa de forma correcta. |
+| Está incluido dentro de las funcionalidades de Git (cherry-pick) | No siempre se puede aplicar |
 
 ##### Referencias
 
@@ -101,9 +131,39 @@ if( featureFlags.isOn("my-new-feature") ){
 
 ## Gitflow Workflow
 
-...
+Es un modelo de ramificación de control de fuentes de una aplicación basado en Git Workflow y Feature Branch Workflow sin agregar nuevos conceptos sino más bien roles específicos para las diferentes ramas y definir el cómo y cuándo estas deben interactuar entre si.
 
-### Workflow
+Este modelo provee un robusto marco de trabajo para la gestión de grandes proyecto con ciclos de lanzamiento de versiones programados. Está compuesto de cinco ramas de trabajo, dos principales y tres de soporte.
+
+### **Ramas:**
+
+### Master
+
+La rama origin/master es el origen de todo y tiene como único propósito contener la historia de los releases y hotfixes de la aplicación. Las única ramas que se integran a la rama master son las ramas release y hotfix, ambos generan un tag con un número de versión.
+
+Esta rama tiene un tiempo de vida infinito y siempre debe reflejar la versión liberada en producción.
+
+### Develop
+
+Esta rama nace de la rama master al inicio del proyecto y tiene la función de ser la rama de integración para todos las ramas features. Desde esta rama son creadas las ramas release y a esta también se le integran las ramas bugfix.
+
+Esta rama tiene un tiempo de vida infinito y siempre debe contener todas las ramas feature terminadas.
+
+### Feature
+
+Esta rama nace de la rama develop y termina al ser integrada a la misma. Cada nueva funcionalidad o cambio debe tener su propia rama feature.
+
+Esta rama tiene un tiempo de vida medio o corto, en caso contrario se podría utilizar el patrón *Branch By Abstraction* para separar la funcionalidad a trabajar en funcionalidades más pequeñas.
+
+### Release
+
+Esta rama nace de la rama develop y termina al ser integrada a la rama master. El objetivo de esta rama es 
+
+
+### Bugfix
+
+
+**Workflow**
 ...
 
 ### Consideraciones
