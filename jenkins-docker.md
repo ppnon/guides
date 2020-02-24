@@ -43,3 +43,5 @@ docker tag {image:tag} local.registry:5000/{user}/{image-name}:{tag}
 docker push local.registry:5000/{user}/{image-name}:{tag}
 
 docker pull docker-registry:500/{user}/{image-name}:{tag}
+
+https://docs.docker.com/registry/deploying/
