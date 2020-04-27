@@ -241,6 +241,7 @@ git push ${option} ${local_origin} ${remote_destiny}
 # examples
 git push -u origin master	# push current branch to master, add upstream (tracking)
 git push origin master		# push current branch to master
+git push origin develop     # push current branch to develop
 git push origin				# push current branch to configured upstream
 
 ```
@@ -268,11 +269,13 @@ Restore, revert, reset and clean.
 
 ```bash
 
+# git restore
 git restore .							# restore all files.
 git restore '*.txt'						# restore all files with extension txt.
 git restore file.txt					# restore file.txt.
 git restore --source master~2 file.txt	# restore file.txt to two revisions back.
 
+# git revert
 gir revert
 git revert HEAD						# revert the latest commit and create a new commit.
 git revert HEAD~3					# revert using a relative value -3 before the current state.
@@ -280,6 +283,7 @@ git revert ${commit_sha1}			# revert specific commit by id.
 git revert -n ${commit_sha1}		# revert specific commit by id without commiting.
 git revert --abort 					# cancel the current revert and returns to previous state.
 
+# git reset
 git reset 							# by default the reset type is --mixed.
 git reset HEAD 						# resert the latest commit.
 git reset HEAD~2					# reset using a relative value -2 before the current state.
@@ -288,6 +292,7 @@ git reset --soft HEAD 				# reset to the specified commit but do not delete
 git reset --hard HEAD 				# reset to the specified commit and delete everyting after that commit. 
 git reset --merge ORIG_HEAD 		# reset to the specified merge.
 
+# git clean
 git clean							# remove untracked files.
 
 ```
@@ -297,6 +302,12 @@ git clean							# remove untracked files.
 ## Branches
 
 Create a local branch
+
+```bash
+
+
+
+```
 
 Create a remote branch
 
