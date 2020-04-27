@@ -20,7 +20,7 @@ SCM: Software Configuration Management
 ----
 ## Configure
 
-Command:
+Local configurations
 
 ```bash
 
@@ -28,7 +28,7 @@ git config ${location} ${option} ${configuration} "value"
 
 ```
 
-Configuration:
+Configurations:
 
 | location | Option | Configuration | Description |
 |---|---|---|---|
@@ -56,6 +56,23 @@ git config --local -l
 git config -l
 ```
 
+Configure remote addresses
+
+```bash
+
+# list current configuration
+git remote -v
+
+# change from http to ssh (github)
+git remote set-url origin git@github.com:${username}/${repository}.git
+
+# change from ssh to http (github)
+git remote set-url origin https://github.com/${username}/${repository}.git
+
+```
+
+[back to top](#git)
+
 ## Repository
 
 ### Local Repository
@@ -76,10 +93,10 @@ Add and connect a remote repository with a local repository via SSH
 
 git remote add origin ${remote_repository}.git
 # Github
-git remote add origin git@github.com:${user}/${repository}.git
+git remote add origin git@github.com:${username}/${repository}.git
 
 # examples
-git remote add origin git@github.com:user/my-repo.git
+git remote add origin git@github.com:username/my-repo.git
 git push -u origin master
 
 ```
@@ -91,11 +108,11 @@ Clone remote repository via SSH
 # to clone (download) a remote repository
 git clone ${remote_repository}.git ${local_directory}
 # Github
-git clone git@github.com:${user}/${repository}.git ${local_directory}
+git clone git@github.com:${username}/${repository}.git ${local_directory}
 
 # examples
-git clone git@github.com:user/my-repo.git
-git clone git@github.com:user/my-repo.git my-remote-repo
+git clone git@github.com:username/my-repo.git
+git clone git@github.com:username/my-repo.git my-remote-repo
 
 ```
 
