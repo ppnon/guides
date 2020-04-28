@@ -185,11 +185,11 @@ Show differences between files before commit.
 git diff ${option} ${branch_a} ${branch_b}
 
 # examples
-git diff 								# shows differences between local and HEAD
-git diff --color-words					# shows colored differences
-git diff --check						# checks if exist differences
-git diff --stat 						# print stats 
-git diff branch-a branch-b				# compare specified branches
+git diff 					# shows differences between local and HEAD
+git diff --color-words				# shows colored differences
+git diff --check				# checks if exist differences
+git diff --stat 				# print stats 
+git diff branch-a branch-b			# compare specified branches
 git diff --color-words branch-a brach-b
  
 ```
@@ -204,12 +204,12 @@ git stash ${command} ${option} ${index}
 # if no command is specified, the push command is used.
 
 # examples
-git stash -u 					# stash current changes including untracked files.
-git stash list 					# list existing stashes.
-git stash show -p stash@{0} 	# compare specific stash with the last commit.
-git stash pop 1					# restore stash by index.	
-git stash drop 0				# drop stash by index.
-git stash clear					# remove all stashes.
+git stash -u 				# stash current changes including untracked files.
+git stash list 				# list existing stashes.
+git stash show -p stash@{0} 		# compare specific stash with the last commit.
+git stash pop 1				# restore stash by index.	
+git stash drop 0			# drop stash by index.
+git stash clear				# remove all stashes.
 
 ```
 
@@ -241,8 +241,8 @@ git push ${option} ${local_origin} ${remote_destiny}
 # examples
 git push -u origin master	# push current branch to master, add upstream (tracking)
 git push origin master		# push current branch to master
-git push origin develop     # push current branch to develop
-git push origin				# push current branch to configured upstream
+git push origin develop     	# push current branch to develop
+git push origin			# push current branch to configured upstream
 
 ```
 
@@ -270,30 +270,30 @@ Restore, revert, reset and clean.
 ```bash
 
 # git restore
-git restore .							# restore all files.
-git restore '*.txt'						# restore all files with extension txt.
-git restore file.txt					# restore file.txt.
-git restore --source master~2 file.txt	# restore file.txt to two revisions back.
+git restore .					# restore all files.
+git restore '*.txt'				# restore all files with extension txt.
+git restore file.txt				# restore file.txt.
+git restore --source master~2 file.txt		# restore file.txt to two revisions back.
 
 # git revert
 gir revert
-git revert HEAD						# revert the latest commit and create a new commit.
-git revert HEAD~3					# revert using a relative value -3 before the current state.
+git revert HEAD					# revert the latest commit and create a new commit.
+git revert HEAD~3				# revert using a relative value -3 before the current state.
 git revert ${commit_sha1}			# revert specific commit by id.
-git revert -n ${commit_sha1}		# revert specific commit by id without commiting.
-git revert --abort 					# cancel the current revert and returns to previous state.
+git revert -n ${commit_sha1}			# revert specific commit by id without commiting.
+git revert --abort 				# cancel the current revert and returns to previous state.
 
 # git reset
-git reset 							# by default the reset type is --mixed.
-git reset HEAD 						# resert the latest commit.
-git reset HEAD~2					# reset using a relative value -2 before the current state.
+git reset 					# by default the reset type is --mixed.
+git reset HEAD 					# resert the latest commit.
+git reset HEAD~2				# reset using a relative value -2 before the current state.
 git reset ${commit_sha1}			# reset to the commit specified by id.
 git reset --soft HEAD 				# reset to the specified commit but do not delete 
 git reset --hard HEAD 				# reset to the specified commit and delete everyting after that commit. 
-git reset --merge ORIG_HEAD 		# reset to the specified merge.
+git reset --merge ORIG_HEAD 			# reset to the specified merge.
 
 # git clean
-git clean							# remove untracked files.
+git clean					# remove untracked files.
 
 ```
 
