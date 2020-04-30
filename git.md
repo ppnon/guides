@@ -51,9 +51,9 @@ git config --global user.email "usuario@email.com"
 
 git config --global --unset user.name
 
-git config --global -l
-git config --local -l
-git config -l
+git config --global -l          # list global configurations
+git config --local -l           # list local configurations
+git config -l                   # list all configurations
 ```
 
 Configure remote addresses
@@ -82,6 +82,8 @@ Create local repository
 ```bash
 
 git init
+
+# remember that the master branch will be created by GIT after the first commit.
 
 ```
 
@@ -225,6 +227,7 @@ git commit ${option}
 # examples
 git commit -a
 git commit -am "commit message"
+
 # to edit the message of the latest commit.
 git commit --amend
 
@@ -236,14 +239,11 @@ Push changes to remote repository.
 
 ```bash
 
-git push ${option} ${local_origin} ${remote_destiny}
+git push ${option} origin ${remote_branch}
 
 # examples
 git push -u origin master	# push current branch to master, add upstream (tracking)
 git push origin master		# push current branch to master
-git push origin develop     	# push current branch to develop
-git push origin			# push current branch to configured upstream
-
 ```
 
 [back to top](#git)
@@ -305,13 +305,85 @@ Create a local branch
 
 ```bash
 
+git branch ${options} ${new_branch_name} ${existing_branch_or_tag}
 
+# examples
+git branch new-branch                  # create a branch from the current branch
+git branch new-branch develop          # create a branch from the develop branch
+git branch new-branch 1.0.1          # create a branch from the 1.0.1 tag
+
+# another way to create a branch is with the checkout command
+git checkout -b ${new-branch}
 
 ```
 
-Create a remote branch
+Create a remote branch. To create a remote branch it must be exist locally first.
 
-Push a local branch to a remote branch
+```bash
+
+git push -u origin ${new-branch}
+
+# examples
+git push -u origin new-branch       # create the new-branch
+git push -u origin                  # create the current branch and add upstream (tracking)
+
+```
+
+List and navigate between branches
+
+```bash
+
+# list branches
+git branch -l               # list local branches
+git branch -a               # list local and remote-tracking branches
+
+# navigate between branches
+git switch other-branch             # switch to branch other-branch
+git switch -                        # switch back to the previous branch
+git checkout other-branch           # switch to branch other-branch
+
+```
+
+Delete local branch and remote branch
+
+```bash
+
+# delete local branch
+git branch -d ${branch}
+
+# delete remote branch
+git push origin --delete ${branch}
+
+# if the local branch is connected to a remote branch, do this before deleting the local branch
+git fetch -p
+
+```
+
+Synchronize local and remote branches (WIP)
+
+```bash
+
+git pull
+git fetch
+
+```
+
+Merge branches (WIP)
+
+```bash
+
+git merge
+
+```
+
+Cherry pick between branches (WIP)
+
+```bash
+
+git cherry-pick
+
+```
+
 [back to top](#git)
 
 ## Tags
@@ -323,6 +395,7 @@ Delete a local tag
 Push local tags to remote
 
 Delete remote tags
+
 [back to top](#git)
 
 ## Git Flow Workflow
